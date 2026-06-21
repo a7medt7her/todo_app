@@ -9,7 +9,7 @@ class TaskShap extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.symmetric(vertical: 20.sp),
+      margin: EdgeInsets.symmetric(vertical: 20.h),
       decoration: BoxDecoration(
         boxShadow: [
           BoxShadow(
@@ -25,7 +25,6 @@ class TaskShap extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 13.w, vertical: 13.h),
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Row(
               children: [
@@ -50,12 +49,15 @@ class TaskShap extends StatelessWidget {
                 ),
               ],
             ),
-            Text(
-              'Improve my English skills by trying to speekImprove my English skills by trying to speekImprove my English skills by trying to speekImprove my English skills by trying to speekImprove my English skills by trying to speek',
-              style: TextStyle(
-                fontWeight: AppTextStyle.light,
-                fontSize: 14.sp,
-                color: AppColor.lightBlack,
+            Padding(
+              padding: EdgeInsets.only(right: 84.w),
+              child: Text(
+                'Improve my English skills by trying to speekImprove my English skills by trying to speekImprove my English skills by trying to speekImprove my English skills by trying to speekImprove my English skills by trying to speek',
+                style: TextStyle(
+                  fontWeight: AppTextStyle.light,
+                  fontSize: 14.sp,
+                  color: AppColor.lightBlack,
+                ),
               ),
             ),
           ],

@@ -12,23 +12,15 @@ import 'package:todo_app/core/widgets/coustom_textfiled.dart';
 import 'package:todo_app/features/auth/view_model/login_cubit/cubit/login_cubit.dart';
 import 'package:todo_app/features/auth/widgets/image.dart';
 
-class LoginView extends StatefulWidget {
-  const LoginView({super.key});
-
-  @override
-  State<LoginView> createState() => _RegisterViewState();
-}
-
-class _RegisterViewState extends State<LoginView> {
-  var userName = GlobalKey<FormState>();
-  var password = GlobalKey<FormState>();
+class LoginView extends StatelessWidget {
+  LoginView({super.key});
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => LoginCubit(),
       child: Scaffold(
-        backgroundColor: Color(0xFFF3F5F4),
         body: SingleChildScrollView(
           child: Column(
             children: [
@@ -40,42 +32,43 @@ class _RegisterViewState extends State<LoginView> {
                 child: BlocBuilder<LoginCubit, LoginState>(
                   builder: (context, state) {
                     var cubit = LoginCubit.get(context);
-                    return Column(
-                      children: [
-                        CustomTextFiled(
-                          keyForm: userName,
-                          validator: AppValidator.emailValidator,
-                          hintText: 'Username',
-                          controller: cubit.userNameController,
-                          prefixIcon: AppSvg.profileIcon(
-                            width: 24.w,
-                            hight: 24.w,
+                    return Form(
+                      key: formKey,
+                      child: Column(
+                        children: [
+                          CustomTextFiled(
+                            validator: AppValidator.emailValidator,
+                            hintText: 'Username',
+                            controller: cubit.userNameController,
+                            prefixIcon: AppSvg.profileIcon(
+                              width: 24.w,
+                              hight: 24.h,
+                            ),
+                            obscureText: false,
                           ),
-                          obscureText: false,
-                        ),
-                        SizedBox(height: 10.h),
-                        CustomTextFiled(
-                          keyForm: password,
-                          validator: AppValidator.passwordValidator,
+                          SizedBox(height: 10.h),
+                          CustomTextFiled(
+                            validator: AppValidator.passwordValidator,
 
-                          hintText: 'Password',
-                          controller: cubit.passwordController,
-                          prefixIcon: AppSvg.passwordIcon(
-                            width: 24.w,
-                            hight: 24.w,
-                          ),
-                          suffixIcon: IconButton(
-                            onPressed: cubit.passwordViability,
-                            icon: AppSvg.combinedShape(
+                            hintText: 'Password',
+                            controller: cubit.passwordController,
+                            prefixIcon: AppSvg.passwordIcon(
                               width: 24.w,
                               hight: 24.w,
                             ),
+                            suffixIcon: IconButton(
+                              onPressed: cubit.passwordViability,
+                              icon: AppSvg.combinedShape(
+                                width: 24.w,
+                                hight: 24.h,
+                              ),
+                            ),
+                            obscureText: cubit.isVisible1,
                           ),
-                          obscureText: cubit.isVisible1,
-                        ),
 
-                        SizedBox(height: 23.h),
-                      ],
+                          SizedBox(height: 23.h),
+                        ],
+                      ),
                     );
                   },
                 ),
@@ -83,8 +76,7 @@ class _RegisterViewState extends State<LoginView> {
 
               CoustomElvatedbutton(
                 onPressed: () {
-                  if (userName.currentState!.validate() &&
-                      password.currentState!.validate()) {
+                  if (formKey.currentState!.validate()) {
                     Navigator.pushReplacementNamed(context, Routs.home);
                   }
                 },

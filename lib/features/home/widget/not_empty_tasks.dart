@@ -23,9 +23,7 @@ class NotEmptyTasks extends StatelessWidget {
             ),
             SizedBox(width: 15.w),
             Container(
-              alignment: AlignmentGeometry.center,
-              width: 14.w,
-              height: 20.h,
+              padding: EdgeInsets.symmetric(horizontal: 2.w),
 
               decoration: BoxDecoration(
                 color: AppColor.primary.withAlpha(50),

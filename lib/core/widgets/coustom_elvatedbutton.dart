@@ -42,11 +42,11 @@ class CoustomElvatedbutton extends StatelessWidget {
           borderRadius: BorderRadius.circular(14.r),
         ),
         child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 12.w),
+          padding: EdgeInsets.symmetric(vertical: 12.h),
           child: Text(
             text,
             style: TextStyle(
-              fontSize: 18.sp,
+              fontSize: 19.sp,
               fontWeight: AppTextStyle.light,
               color: AppColor.white,
             ),

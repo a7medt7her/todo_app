@@ -67,4 +67,12 @@ class AppSvg {
   static SvgPicture addTask({double? width, double? hight}) {
     return SvgPicture.asset(AssetsIcon.addTask, width: width, height: hight);
   }
+
+  static SvgPicture addTask2({double? width, double? hight}) {
+    return SvgPicture.asset(AssetsIcon.addTask2, width: width, height: hight);
+  }
+
+  static SvgPicture personal({double? width, double? hight}) {
+    return SvgPicture.asset(AssetsIcon.personal, width: width, height: hight);
+  }
 }

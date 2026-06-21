@@ -12,11 +12,8 @@ class StartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFF3F5F4),
       body: SingleChildScrollView(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-
           children: [
             Padding(
               padding: EdgeInsets.only(top: 90.h, left: 36.w, right: 37.3.w),

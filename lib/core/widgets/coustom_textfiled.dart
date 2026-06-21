@@ -14,7 +14,8 @@ class CustomTextFiled extends StatelessWidget {
     this.onTap,
     required this.obscureText,
     this.validator,
-    this.keyForm,
+    this.maxLines,
+    this.minLines,
   });
   final Widget? prefixIcon;
   final Widget? suffixIcon;
@@ -23,46 +24,48 @@ class CustomTextFiled extends StatelessWidget {
   final VoidCallback? onTap;
   final bool obscureText;
   final String? Function(String?)? validator;
-  final GlobalKey<FormState>? keyForm;
+  final int? maxLines;
+  final int? minLines;
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: keyForm,
-      child: TextFormField(
-        validator: validator,
-        obscureText: obscureText,
-        controller: controller,
-        decoration: InputDecoration(
-          fillColor: AppColor.white,
-          filled: true,
-          suffixIcon: suffixIcon,
+    return TextFormField(
+      minLines: minLines,
+      maxLines: maxLines ?? 1,
+      validator: validator,
+      obscureText: obscureText,
+      controller: controller,
+      decoration: InputDecoration(
+        fillColor: AppColor.white,
+        filled: true,
+        suffixIcon: suffixIcon,
 
-          prefixIcon: Padding(
-            padding: EdgeInsets.only(left: 16.w, right: 15.w),
-            child: prefixIcon,
-          ),
-          hintText: hintText,
-          hintStyle: TextStyle(
-            fontSize: 14.sp,
-            fontWeight: AppTextStyle.extraLight,
-            color: AppColor.gray,
-          ),
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15.r),
-            borderSide: BorderSide(color: AppColor.border),
-          ),
-          enabledBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15.r),
-            borderSide: BorderSide(color: AppColor.border),
-          ),
-          focusedBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15.r),
-            borderSide: BorderSide(color: AppColor.primary),
-          ),
-          errorBorder: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(15.r),
-            borderSide: BorderSide(color: AppColor.error),
-          ),
+        prefixIcon: prefixIcon == null
+            ? null
+            : Padding(
+                padding: EdgeInsets.only(left: 16.w, right: 15.w),
+                child: prefixIcon,
+              ),
+        hintText: hintText,
+        hintStyle: TextStyle(
+          fontSize: 14.sp,
+          fontWeight: AppTextStyle.extraLight,
+          color: AppColor.gray,
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15.r),
+          borderSide: BorderSide(color: AppColor.border),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15.r),
+          borderSide: BorderSide(color: AppColor.border),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15.r),
+          borderSide: BorderSide(color: AppColor.primary),
+        ),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15.r),
+          borderSide: BorderSide(color: AppColor.error),
         ),
       ),
     );

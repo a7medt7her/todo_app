@@ -7,11 +7,13 @@ abstract class AssetsIcon {
   static const String home = '${linkIcons}Group 1000002823.svg';
   static const String calendar = '${linkIcons}calendar.svg';
   static const String addTask = '${linkIcons}Paper Plus - Iconly Pro.svg';
+  static const String addTask2 = '${linkIcons}Plus - Iconly Pro.svg';
+  static const String personal = '${linkIcons}Group 28.svg';
 }
 
 abstract class AssetsImage {
   static const String linkImage = 'assets/image/';
-  static const String emptyTasks = '${linkImage}55024598_9264826 1.svg';
+  static const String emptyTasks = '${linkImage}Group 1000002857.svg';
   static const String startScreen = '${linkImage}OBJECTS012.svg';
   static const String Flage = '${linkImage}GettyImages-1315607788 3.png';
 }
