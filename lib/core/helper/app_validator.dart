@@ -3,6 +3,10 @@ class AppValidator {
     if (value == null || value.isEmpty) {
       return 'inter your email';
     }
+    final simpleEmailRegex = RegExp(r'^[^@]+@[^@]+\.[^@]+$');
+    if (!simpleEmailRegex.hasMatch(value)) {
+      return 'invalid email';
+    }
     return null;
   }
 

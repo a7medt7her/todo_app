@@ -5,4 +5,6 @@ abstract class Routs {
   static const home = 'home';
   static const forgetPassword = 'forgetPassword';
   static const addTask = 'addTask';
+  static const settings = 'settings';
+  static const updateProfile = 'updateProfile';
 }

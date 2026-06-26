@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:todo_app/core/const/routs.dart';
-import 'package:todo_app/core/helper/image.dart';
+
 import 'package:todo_app/core/unitles/app_color.dart';
 import 'package:todo_app/core/unitles/app_text_style.dart';
 import 'package:todo_app/core/unitles/asstes.dart';
 
 class Header extends StatelessWidget {
-  const Header({super.key, required this.isEmpty});
-  final bool isEmpty;
+  const Header({super.key, this.trailing, required this.username});
+  final Widget? trailing;
+  final String username;
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        Container(
+    return Container(
+      child: ListTile(
+        leading: Container(
           width: 60.w,
           height: 60.h,
           decoration: BoxDecoration(
@@ -22,8 +21,8 @@ class Header extends StatelessWidget {
             image: DecorationImage(image: AssetImage(AssetsImage.Flage)),
           ),
         ),
-        SizedBox(width: 16.w),
-        Column(
+
+        title: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
@@ -36,7 +35,7 @@ class Header extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             Text(
-              'Ahmed Taher',
+              username,
               style: TextStyle(
                 fontWeight: AppTextStyle.light,
                 fontSize: 12.sp,
@@ -45,14 +44,8 @@ class Header extends StatelessWidget {
             ),
           ],
         ),
-        Spacer(),
-        isEmpty
-            ? SizedBox()
-            : GestureDetector(
-                onTap: () => Navigator.pushNamed(context, Routs.addTask),
-                child: AppSvg.addTask2(width: 24.w, hight: 24.h),
-              ),
-      ],
+        trailing: trailing,
+      ),
     );
   }
 }

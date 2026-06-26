@@ -4,6 +4,7 @@ import 'package:todo_app/core/const/routs.dart';
 import 'package:todo_app/core/helper/image.dart';
 import 'package:todo_app/core/unitles/app_color.dart';
 import 'package:todo_app/core/unitles/app_text_style.dart';
+import 'package:todo_app/core/unitles/padding.dart';
 import 'package:todo_app/core/widgets/coustom_elvatedbutton.dart';
 
 class StartScreen extends StatelessWidget {
@@ -41,16 +42,19 @@ class StartScreen extends StatelessWidget {
             ),
             SizedBox(height: 56.h),
 
-            CoustomElvatedbutton(
-              onPressed: () {
-                Navigator.pushReplacementNamed(context, Routs.logIn);
-              },
-              text: 'Get Started',
-              blurRadius: 10,
-              spreadRadius: 0,
-              dx: 0,
-              dy: 5,
-              color: Color(0xFF149954),
+            Padding(
+              padding: AppPadding.defaultPadding,
+              child: CoustomElvatedbutton(
+                onTap: () {
+                  Navigator.pushReplacementNamed(context, Routs.logIn);
+                },
+                text: 'Get Started',
+                blurRadius: 10,
+                spreadRadius: 0,
+                dx: 0,
+                dy: 5,
+                color: Color(0xFF149954),
+              ),
             ),
             SizedBox(height: 74.99.h),
           ],

@@ -75,4 +75,12 @@ class AppSvg {
   static SvgPicture personal({double? width, double? hight}) {
     return SvgPicture.asset(AssetsIcon.personal, width: width, height: hight);
   }
+
+  static SvgPicture arrow({double? width, double? hight}) {
+    return SvgPicture.asset(AssetsIcon.arrow, width: width, height: hight);
+  }
+
+  static SvgPicture settings({double? width, double? hight}) {
+    return SvgPicture.asset(AssetsIcon.setting, width: width, height: hight);
+  }
 }

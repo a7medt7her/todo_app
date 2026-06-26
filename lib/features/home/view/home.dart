@@ -5,7 +5,7 @@ import 'package:todo_app/core/helper/image.dart';
 import 'package:todo_app/core/unitles/app_color.dart';
 import 'package:todo_app/core/unitles/padding.dart';
 import 'package:todo_app/features/home/widget/empty_tasks.dart';
-import 'package:todo_app/features/home/widget/header.dart';
+import 'package:todo_app/core/widgets/header.dart';
 import 'package:todo_app/features/home/widget/not_empty_tasks.dart';
 
 class Home extends StatelessWidget {
@@ -13,19 +13,41 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<String> taskes = ['asdas'];
+    final args =
+        ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
+    final String accessToken = args['accessToken'];
+    List<String> taskes = [''];
     return Scaffold(
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Padding(
-            padding: AppPadding.defaultPadding,
-            child: Column(
-              children: [
-                Header(isEmpty: taskes.isEmpty),
-                SizedBox(height: 54.h),
-                taskes.isEmpty ? EmptyTasks() : NotEmptyTasks(),
-              ],
-            ),
+          child: Column(
+            children: [
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, Routs.settings);
+                },
+                child: Header(
+                  trailing: taskes.isEmpty
+                      ? null
+                      : GestureDetector(
+                          onTap: () =>
+                              Navigator.pushNamed(context, Routs.addTask),
+                          child: AppSvg.addTask2(width: 24.w, hight: 24.h),
+                        ),
+                  username: args['userName'],
+                ),
+              ),
+              Padding(
+                padding: AppPadding.defaultPadding,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(height: 54.h),
+                    taskes.isEmpty ? EmptyTasks() : NotEmptyTasks(),
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
       ),

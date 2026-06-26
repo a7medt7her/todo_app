@@ -6,7 +6,7 @@ import 'package:todo_app/core/unitles/app_text_style.dart';
 class CoustomElvatedbutton extends StatelessWidget {
   const CoustomElvatedbutton({
     super.key,
-    required this.onPressed,
+    required this.onTap,
     required this.text,
     required this.blurRadius,
     required this.spreadRadius,
@@ -14,7 +14,7 @@ class CoustomElvatedbutton extends StatelessWidget {
     required this.dy,
     required this.color,
   });
-  final VoidCallback onPressed;
+  final VoidCallback onTap;
   final String text;
   final double blurRadius;
   final double spreadRadius;
@@ -23,9 +23,8 @@ class CoustomElvatedbutton extends StatelessWidget {
   final Color color;
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onPressed: onPressed,
-
+    return GestureDetector(
+      onTap: onTap,
       child: Container(
         width: double.infinity,
 
@@ -42,7 +41,7 @@ class CoustomElvatedbutton extends StatelessWidget {
           borderRadius: BorderRadius.circular(14.r),
         ),
         child: Padding(
-          padding: EdgeInsets.symmetric(vertical: 12.h),
+          padding: EdgeInsets.symmetric(vertical: 12.01.h),
           child: Text(
             text,
             style: TextStyle(

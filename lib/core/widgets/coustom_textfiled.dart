@@ -11,24 +11,30 @@ class CustomTextFiled extends StatelessWidget {
     this.suffixIcon,
     required this.hintText,
     required this.controller,
-    this.onTap,
+
     required this.obscureText,
     this.validator,
     this.maxLines,
     this.minLines,
+    this.readOnly,
+    this.onTap,
   });
   final Widget? prefixIcon;
   final Widget? suffixIcon;
   final String hintText;
   final TextEditingController controller;
-  final VoidCallback? onTap;
+
   final bool obscureText;
   final String? Function(String?)? validator;
   final int? maxLines;
   final int? minLines;
+  final bool? readOnly;
+  final Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      onTap: onTap,
+      readOnly: readOnly ?? false,
       minLines: minLines,
       maxLines: maxLines ?? 1,
       validator: validator,

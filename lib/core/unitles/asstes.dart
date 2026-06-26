@@ -9,6 +9,8 @@ abstract class AssetsIcon {
   static const String addTask = '${linkIcons}Paper Plus - Iconly Pro.svg';
   static const String addTask2 = '${linkIcons}Plus - Iconly Pro.svg';
   static const String personal = '${linkIcons}Group 28.svg';
+  static const String arrow = '${linkIcons}Arrow - Up 2 - Iconly Pro.svg';
+  static const String setting = '${linkIcons}Setting - Iconly Pro.svg';
 }
 
 abstract class AssetsImage {

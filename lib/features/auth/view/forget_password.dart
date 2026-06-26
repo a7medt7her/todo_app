@@ -7,7 +7,7 @@ import 'package:todo_app/core/unitles/padding.dart';
 import 'package:todo_app/core/widgets/coustom_elvatedbutton.dart';
 import 'package:todo_app/core/widgets/coustom_textfiled.dart';
 import 'package:todo_app/features/auth/view_model/forget_password/cubit/forget_password_cubit.dart';
-import 'package:todo_app/features/auth/widgets/image.dart';
+import 'package:todo_app/core/widgets/image_flag.dart';
 
 class ForgetPassword extends StatelessWidget {
   ForgetPassword({super.key});
@@ -73,7 +73,7 @@ class ForgetPassword extends StatelessWidget {
               ),
 
               CoustomElvatedbutton(
-                onPressed: () {
+                onTap: () {
                   if (formKey.currentState!.validate()) {
                     Navigator.pushReplacementNamed(context, Routs.logIn);
                   }
